@@ -1,5 +1,6 @@
 function change(){
     this.style.backgroundColor = 'yellow'
+    setTimeout(() => {  this.style.backgroundColor = 'blue'; }, 500);
 }
 
 
