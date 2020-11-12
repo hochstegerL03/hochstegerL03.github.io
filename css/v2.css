@@ -1,10 +1,10 @@
 .card {
-  background: blue;
+  background-color: blue;
   float: left;
   height: 24vw;
   margin: 1%;
   width: 23%;
 }
-.card:active {
-  background-color:yellow !important;
+.flipped{
+  background-color: yellow;
 }
