@@ -5,3 +5,6 @@
   margin: 1%;
   width: 23%;
 }
+.card:focus {
+  background-color:yellow;
+}
