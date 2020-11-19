@@ -5,12 +5,6 @@ function change(){
 
 
 console.log("Test")
-let c = document.querySelectorAll('.card')
-console.log(c)
-
-for (const ttt of c) {
-    ttt.addEventListener('click', change)
-}
 let xd = document.getElementById("card-deck")
 //let dxd = document.getElementsByClassName("deck")
 //let xdxd = dxd[0]
@@ -21,3 +15,9 @@ for (let index = 0; index < 16; index++) {
     div.innerHTML = index+1;
     xd.appendChild(div);
 }
+let c = document.querySelectorAll('.card')
+for (const ttt of c) {
+    ttt.addEventListener('click', change)
+}
+
+
