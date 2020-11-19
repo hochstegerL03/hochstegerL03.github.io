@@ -12,6 +12,8 @@ for (const ttt of c) {
     ttt.addEventListener('click', change)
 }
 let xd = document.getElementById("card-deck")
+//let dxd = document.getElementsByClassName("deck")
+//let xdxd = dxd[0]
 for (let index = 0; index < 16; index++) {
     
     var div = document.createElement("div");
