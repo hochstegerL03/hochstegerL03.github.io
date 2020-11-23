@@ -1,4 +1,3 @@
-var test =0
 var buffer = []
 var oeffen = []
 function change(){
