@@ -1,5 +1,5 @@
 .card {
-  background-color: blue;
+  /*background-color: blue; */
   float: left;
   height: 24vw;
   margin: 1%;
@@ -11,6 +11,27 @@
 .flipped2{
   background-color: green;
 }
+.flipped3{
+  background-color: white;
+}
+.flipped4{
+  background-color: blue;
+}
+.flipped5{
+  background-color: black;
+}
+.flipped6{
+  background-color: purple;
+}
+.flipped7{
+  background-color: plum;
+}
+.flipped8{
+  background-color: palevioletred;
+}
+.zu{
+  background-color: aqua !important;
+}
 .oeffen{
-  background-color: red;
+ visibility: hidden;
 }

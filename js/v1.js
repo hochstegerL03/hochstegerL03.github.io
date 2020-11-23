@@ -15,13 +15,13 @@ function change(){
         }
         for (let index = 0; index < buffer.length; index++) {
             that = document.getElementById(buffer[index])
-            that.classList.toggle("flipped")
+            that.classList.toggle("zu")
         }
         
         buffer = []
     }
     else if (!this.classList.contains("oeffen")){
-        this.classList.toggle("flipped") 
+        this.classList.toggle("zu") 
         if(buffer.length >0){
             if (buffer[0] != this.id) {
                 buffer.push(this.id)
@@ -38,19 +38,13 @@ function change(){
         
     }
 }
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
 let anzahl = []
 for (let index = 1; index < 9; index++) {
     anzahl.push([index])
+    console.log(index)
 }
 
+let classen = ["flipped","flipped2", "flipped3", "flipped4", "flipped5", "flipped6", "flipped7", "flipped8"]
 console.log("Test")
 let xdxdxd = 1
 let xd = document.getElementById("card-deck")
@@ -66,13 +60,15 @@ for (let index = 0; index < 16; index++) {
     }
     var div = document.createElement("div");
     div.classList.add("card")
+    div.classList.add(classen[anzahl[testy][0]-1])
+    console.log(classen[anzahl[testy][0]])
+    div.classList.add("zu")
     div.innerHTML = anzahl[testy][0];
     div.id = index+1
     div.type = anzahl[testy][0]
     anzahl[testy].push("testy")
     div.addEventListener('click', change)
     xd.appendChild(div);
-    console.log("test")
 }
 
 
