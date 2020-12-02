@@ -80,12 +80,19 @@ cardTypes = shuffle(numberCards)
 var p = document.querySelector('.deck')
 for (let index = 0; index < numberCards; index++) {
         let c = document.createElement('div')
+        c.id = index
         c.type = cardTypes[index]
-        c.className="card"
-        c.classList.add("opens") 
+        c.classList.add("card")
+        c.classList.add("wasclosed") 
         let ddd = farben[cardTypes[index]-1]
-        c.classList.add(ddd)
+        //c.classList.add(ddd)
         c.addEventListener('click',flipp)
+        let ccc = document.createElement('div')
+        ccc.className="opens"
+        let cccc = document.createElement('div')
+        cccc.className =ddd
+        c.appendChild(ccc)
+        c.appendChild(cccc)
         p.appendChild(c)
 }
 
@@ -94,11 +101,13 @@ let cc = document.createElement('h1')
 
 function flipp(event){
     //if(!this.classList.contains('found'))
+   
         openCard(this)
         
     
 }
 function openCard(c){
+    console.log(c)
     if (document.getElementById("County").innerHTML == "00:00") {
         startTime = Math.floor(Date.now() / 1000)
         startTimeCounter()
@@ -107,48 +116,49 @@ function openCard(c){
         }
     }
     if (openedCards.length < 2 && !c.classList.contains("found")) {
-        if (!c.classList.contains('open') && !c.classList.contains('opens')) {
-            nowy = (Date.now() / 1000)
-            cool2 = (Date.now() / 1000)
-            if (nowy - cooldown > 0.7) {
-                openedCards.pop()
-            //c.classList.toggle("flipped")
-            superToggle(c,"flipped","open")
-            reihe -=2
+        if (openedCards.length ==1)  {
+            if (openedCards[0].id == c.id) {
+                nowy = (Date.now() / 1000)
+                cool2 = (Date.now() / 1000)
+                if (nowy - cooldown > 0.4) {
+                    openedCards.pop()
+                //c.classList.toggle("flipped")
+                c.classList.toggle("open")
+                reihe -=2
+                }
             }
-            
 
-            
+            else{
+                nowie = (Date.now() / 1000)
+                cooldown = (Date.now() / 1000)
+                    if (nowie - cool2 > 0.4) {
+                        c.classList.toggle('open')
+                        openedCards.push(c)
+                        
+                    }  
+            }  
         }
         else{
             nowie = (Date.now() / 1000)
             cooldown = (Date.now() / 1000)
-            if (c.classList.contains("opens")) {
                 if (nowie - cool2 > 0.7) {
-                    c.classList.toggle("flipped")
-                    c.classList.toggle("opens")
+                    c.classList.toggle('open')
                     openedCards.push(c)
-                }
                     
-                
-            }
-            else{
-                if (nowie - cool2 > 0.7) {
-                    c.classList.toggle('flipped')
-                    c.classList.toggle("open")
-                    openedCards.push(c)
                 }  
-            }
         }
         if (openedCards.length == 2) {
+            
             if(openedCards[0].type == openedCards[1].type){
                 //alert('gleich')
                 setTimeout(
                     ()=>{
                         for (let index = openedCards.length; index > 0; index--) {
-                            openedCards.pop().classList.toggle('found')
+                            openedCards.pop().classList.toggle("found")
+                            //superToggle(openedCards.pop(), "found","open")
+                            console.log(c)
                             founded+=1
-                            console.log(founded)
+                            
                         }
                         if (founded == 16) {
                             let element = document.getElementsByClassName("retry")[0]
@@ -175,7 +185,7 @@ function openCard(c){
             else{
                 setTimeout(()=>{
                     for (let index = openedCards.length; index >0; index--) {
-                        superToggle(openedCards.pop(),"flipped","open")
+                        openedCards.pop().classList.toggle('open')
                     } 
                 }, 1000)
             }
