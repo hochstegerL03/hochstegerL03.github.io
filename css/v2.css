@@ -1,6 +1,10 @@
 body{
   background-color: black !important;
 }
+.container{
+  max-width: 1000px;
+  margin:auto;
+}
 .counter{
   color:white;
   text-align: center;
