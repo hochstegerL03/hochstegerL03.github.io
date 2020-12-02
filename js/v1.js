@@ -15,18 +15,46 @@ var superToggle = function(element, class0, class1) {
     element.classList.toggle(class0);
     element.classList.toggle(class1);
   }
-var counter =0
-let reihe =0;
-let bonus =1;
-const numberCards = 16
-let openedCards = []
-let cardTypes=[]
-let farben = ["flipped1", "flipped2", "flipped3", "flipped4","flipped5","flipped6","flipped7","flipped8"]
+  var startTime = Math.floor(Date.now() / 1000)
+function startTimeCounter(){
+    var now = Math.floor(Date.now() / 1000)
+    var diff = now - startTime
+    var m = Math.floor(diff / 60)
+    var s = Math.floor(diff % 60)
+    m = checkTime(m)
+    s = checkTime(s)
+    document.getElementById("County").innerHTML = m+ ":" +s
+    if (founded != 16) {
+        var t = setTimeout(startTimeCounter, 500)   
+    }
+}
+
+function checkTime(i){
+    if (i < 10) {
+        i ="0"+i
+    }
+    return i
+}
+
+
+function generate() {
+    let div = document.getElementById('card-deck');
+while(div.firstChild){
+    div.removeChild(div.firstChild);
+}
 cardTypes = shuffle(numberCards)
-let p = document.querySelector('.deck')
+openedCards = []
+founded =0
+counter =0
+reihe =0;
+bonus =1;
+let element = document.getElementsByClassName("retry")[0]
+element.classList.toggle("hide")
+let county = document.getElementsByTagName("h1")
+county[0].innerHTML ="Points "+counter
+document.getElementById("County").innerHTML = "00:00"
 for (let index = 0; index < numberCards; index++) {
         let c = document.createElement('div')
-        c.innerHTML = cardTypes[index]
         c.type = cardTypes[index]
         c.className="card"
         c.classList.add("open") 
@@ -35,6 +63,29 @@ for (let index = 0; index < numberCards; index++) {
         c.addEventListener('click',flipp)
         p.appendChild(c)
 }
+}
+var founded =0
+var counter =0
+let reihe =0;
+let bonus =1;
+const numberCards = 16
+let openedCards = []
+let cardTypes=[]
+let farben = ["flipped1", "flipped2", "flipped3", "flipped4","flipped5","flipped6","flipped7","flipped8"]
+cardTypes = shuffle(numberCards)
+var p = document.querySelector('.deck')
+for (let index = 0; index < numberCards; index++) {
+        let c = document.createElement('div')
+        c.type = cardTypes[index]
+        c.className="card"
+        c.classList.add("opens") 
+        let ddd = farben[cardTypes[index]-1]
+        c.classList.add(ddd)
+        c.addEventListener('click',flipp)
+        p.appendChild(c)
+}
+
+let cc = document.createElement('h1')
 
 function flipp(event){
     //if(!this.classList.contains('found'))
@@ -43,17 +94,31 @@ function flipp(event){
     
 }
 function openCard(c){
+    if (document.getElementById("County").innerHTML == "00:00") {
+        startTime = Math.floor(Date.now() / 1000)
+        startTimeCounter()
+        if (document.getElementsByClassName("upp")[0].classList.contains("hide")) {
+            document.getElementsByClassName("upp")[0].classList.toggle("hide")
+        }
+    }
     if (openedCards.length < 2 && !c.classList.contains("found")) {
-        if (!c.classList.contains('open')) {
+        if (!c.classList.contains('open') && !c.classList.contains('opens')) {
             openedCards.pop()
             //c.classList.toggle("flipped")
             superToggle(c,"flipped","open")
             reihe -=2
         }
         else{
-            c.classList.toggle('flipped')
-            c.classList.toggle("open")
-            openedCards.push(c)
+            if (c.classList.contains("opens")) {
+                c.classList.toggle("flipped")
+                c.classList.toggle("opens")
+                openedCards.push(c)
+            }
+            else{
+                c.classList.toggle('flipped')
+                c.classList.toggle("open")
+                openedCards.push(c)
+            }
         }
         if (openedCards.length == 2) {
             if(openedCards[0].type == openedCards[1].type){
@@ -62,7 +127,13 @@ function openCard(c){
                     ()=>{
                         for (let index = openedCards.length; index > 0; index--) {
                             openedCards.pop().classList.toggle('found')
-                            
+                            founded+=1
+                            console.log(founded)
+                        }
+                        if (founded == 16) {
+                            let element = document.getElementsByClassName("retry")[0]
+                                element.classList.toggle("hide")
+                            element.addEventListener('click',generate) 
                         }
                         if (reihe <=2) {
                             counter +=100* bonus
@@ -92,7 +163,6 @@ function openCard(c){
     }
         
     reihe +=1
-    console.log(reihe)
 }
 function shuffle(laenge) {
     let arra1 = []
