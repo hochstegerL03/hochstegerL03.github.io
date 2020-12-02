@@ -168,6 +168,7 @@ body{
   }
 
 .retry{
+  transition: transform 300ms;
   color:white;
   margin: auto;
   width: 35%;
@@ -177,6 +178,11 @@ body{
   background-color: gray;
   text-align: center;
   opacity: 90%;
+}
+
+.retry:hover{
+  -webkit-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
 }
 
 .upp{
