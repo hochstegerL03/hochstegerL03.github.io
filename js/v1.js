@@ -64,6 +64,10 @@ for (let index = 0; index < numberCards; index++) {
         p.appendChild(c)
 }
 }
+var cooldown =0
+var cool2 =0
+var nowy =0
+var nowie =0
 var founded =0
 var counter =0
 let reihe =0;
@@ -85,6 +89,7 @@ for (let index = 0; index < numberCards; index++) {
         p.appendChild(c)
 }
 
+
 let cc = document.createElement('h1')
 
 function flipp(event){
@@ -103,21 +108,36 @@ function openCard(c){
     }
     if (openedCards.length < 2 && !c.classList.contains("found")) {
         if (!c.classList.contains('open') && !c.classList.contains('opens')) {
-            openedCards.pop()
+            nowy = (Date.now() / 1000)
+            cool2 = (Date.now() / 1000)
+            if (nowy - cooldown > 0.7) {
+                openedCards.pop()
             //c.classList.toggle("flipped")
             superToggle(c,"flipped","open")
             reihe -=2
+            }
+            
+
+            
         }
         else{
+            nowie = (Date.now() / 1000)
+            cooldown = (Date.now() / 1000)
             if (c.classList.contains("opens")) {
-                c.classList.toggle("flipped")
-                c.classList.toggle("opens")
-                openedCards.push(c)
+                if (nowie - cool2 > 0.7) {
+                    c.classList.toggle("flipped")
+                    c.classList.toggle("opens")
+                    openedCards.push(c)
+                }
+                    
+                
             }
             else{
-                c.classList.toggle('flipped')
-                c.classList.toggle("open")
-                openedCards.push(c)
+                if (nowie - cool2 > 0.7) {
+                    c.classList.toggle('flipped')
+                    c.classList.toggle("open")
+                    openedCards.push(c)
+                }  
             }
         }
         if (openedCards.length == 2) {
