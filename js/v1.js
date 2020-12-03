@@ -82,7 +82,7 @@ let bonus =1;
 const numberCards = 16
 let openedCards = []
 let cardTypes=[]
-let farben = ["flipped1", "flipped2", "flipped3", "flipped4","flipped5","flipped6","flipped7","flipped8"]
+let farben = ["1", "2", "3", "4","5","6","7","8"]
 cardTypes = shuffle(numberCards)
 var p = document.querySelector('.deck')
 for (let index = 0; index < numberCards; index++) {
@@ -92,12 +92,14 @@ for (let index = 0; index < numberCards; index++) {
         c.classList.add("card")
         c.classList.add("wasclosed") 
         let ddd = farben[cardTypes[index]-1]
+        let dddd = ddd+".jpg"
         //c.classList.add(ddd)
         c.addEventListener('click',flipp)
         let ccc = document.createElement('div')
         ccc.className="opens"
         let cccc = document.createElement('div')
-        cccc.className =ddd
+        cccc.className ="flipped1"
+        cccc.style.backgroundImage = `url(../pics/${dddd})`
         c.appendChild(ccc)
         c.appendChild(cccc)
         p.appendChild(c)
