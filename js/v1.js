@@ -54,14 +54,21 @@ let county = document.getElementsByTagName("h1")
 county[0].innerHTML ="Points "+counter
 document.getElementById("County").innerHTML = "00:00"
 for (let index = 0; index < numberCards; index++) {
-        let c = document.createElement('div')
-        c.type = cardTypes[index]
-        c.className="card"
-        c.classList.add("open") 
-        let ddd = farben[cardTypes[index]-1]
-        c.classList.add(ddd)
-        c.addEventListener('click',flipp)
-        p.appendChild(c)
+    let c = document.createElement('div')
+    c.id = index
+    c.type = cardTypes[index]
+    c.classList.add("card")
+    c.classList.add("wasclosed") 
+    let ddd = farben[cardTypes[index]-1]
+    //c.classList.add(ddd)
+    c.addEventListener('click',flipp)
+    let ccc = document.createElement('div')
+    ccc.className="opens"
+    let cccc = document.createElement('div')
+    cccc.className =ddd
+    c.appendChild(ccc)
+    c.appendChild(cccc)
+    p.appendChild(c)
 }
 }
 var cooldown =0
