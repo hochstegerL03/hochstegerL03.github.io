@@ -11,10 +11,6 @@
     6.3) Erkennen ob zwei gleiche Karten 
     aufgedeckt wurden -> wenn gleich -> found; wenn nicht gleich -> verdecken
 */
-var superToggle = function(element, class0, class1) {
-    element.classList.toggle(class0);
-    element.classList.toggle(class1);
-  }
   var startTime = Math.floor(Date.now() / 1000)
 function startTimeCounter(){
     var now = Math.floor(Date.now() / 1000)
