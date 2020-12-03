@@ -60,12 +60,13 @@ for (let index = 0; index < numberCards; index++) {
     c.classList.add("card")
     c.classList.add("wasclosed") 
     let ddd = farben[cardTypes[index]-1]
-    //c.classList.add(ddd)
+    let dddd = ddd+".jpg"
     c.addEventListener('click',flipp)
     let ccc = document.createElement('div')
     ccc.className="opens"
     let cccc = document.createElement('div')
-    cccc.className =ddd
+    cccc.className ="flipped1"
+    cccc.style.backgroundImage = `url(../pics/${dddd})`
     c.appendChild(ccc)
     c.appendChild(cccc)
     p.appendChild(c)
