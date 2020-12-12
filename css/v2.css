@@ -19,6 +19,10 @@ body{
   max-width: 1000px;
   margin:auto;
   perspective: 1000;
+  -webkit-perspective: 1000;
+  -o-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
   z-index: 1;
 }
 .counter{
@@ -85,7 +89,7 @@ body{
   background-size: cover;
 }
 .found{
-  
+
   
 }
 .found div{
@@ -209,12 +213,18 @@ body::after{
   height: 100%;
   opacity: 0;
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -o-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -ms-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .opens:hover {
   margin: 0% 0;
   -webkit-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
   transform: scale(1.05, 1.05);
 }
 
