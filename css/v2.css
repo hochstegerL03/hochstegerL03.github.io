@@ -3,8 +3,16 @@ body{
 }
 .card{
   transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
   background-color: transparent;
   transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
 }
 
 .container{
@@ -82,11 +90,19 @@ body{
 }
 .found div{
   transition: opacity 280ms;
+  -ms-transition: opacity 280ms;
+  -webkit-transition: opacity 280ms;
+  -moz-transition: opacity 280ms;
+  -o-transition: opacity 280ms;
   opacity: 50% ;
   
 }
 .found .opens{
   transition: 0ms;
+  -ms-transition: 0ms;
+  -webkit-transition: 0ms;
+  -moz-transition: 0ms;
+  -o-transition: 0ms;
   opacity: 0%;
 }
 .flip-diagonal-2-br {
@@ -104,6 +120,10 @@ body{
 
 .retry{
   transition: transform 300ms;
+  -ms-transition: transform 300ms;
+  -webkit-transition: transform 300ms;
+  -moz-transition: transform 300ms;
+  -o-transition: transform 300ms;
   color:white;
   margin: auto;
   width: 35%;
@@ -117,6 +137,9 @@ body{
 
 .retry:hover{
   -webkit-transform: scale(1.05, 1.05);
+  -moz-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05);
 }
 
@@ -162,6 +185,10 @@ body::after{
 .opens{
   position: absolute;
   transition: margin 250ms;
+  -webkit-transition: margin 250ms;
+  -ms-transition: margin 250ms;
+  -moz-transition: margin 250ms;
+  -o-transition: margin 250ms;
   background-repeat: no-repeat;
   background-size: cover;
   backface-visibility: hidden;
