@@ -66,6 +66,7 @@ body{
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180px);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   background-image: url('../pics/1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -159,6 +160,7 @@ body::after{
   background-repeat: no-repeat;
   background-size: cover;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border-radius: 25%;
   width: 100%;
   height: 100%;
